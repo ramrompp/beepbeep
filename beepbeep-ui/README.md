@@ -246,9 +246,9 @@ allows client browsers to access this endpoint.
 
 No CI environment is configured for this app.
 
-## Contact
+## Issue tracking
 
-For more information on AngularJS please check out http://angularjs.org/
+Issue tracking is provided by [GitHub][github].
 
 # Credits
 Following credits are in order in relation to this project:
@@ -266,3 +266,4 @@ User interface assets are provided by [Semantic UI default assets][semantic-ui]
 [angular-seed-project]: https://github.com/angular/angular-seed
 [semantic-ui]: http://semantic-ui.com
 [http-server]: https://github.com/nodeapps/http-server
+[github]: https://github.com/ramrompp/beepbeep/
