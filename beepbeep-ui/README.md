@@ -1,4 +1,4 @@
-# BeepBeep — Frontend for Mepa-Store Market Ad Service
+# BeepBeep-UI — Frontend User Interface app for Mepa-Store Market Ad Service
 
 This project provides a user interface implementation for Mepa-Store Market Ad service.
 
@@ -22,7 +22,7 @@ Clone the beepbeep repository using [git][git]:
 
 ```
 git clone https://github.com/ramrompp/beepbeep.git
-cd beepbeep
+cd beepbeep/beepbeep-ui
 ```
 
 If you just want to start a new project without the beepbeep commit history then you can do:
