@@ -264,5 +264,5 @@ User interface assets are provided by [Semantic UI default assets][semantic-ui]
 [jasmine]: http://jasmine.github.io
 [karma]: http://karma-runner.github.io
 [angular-seed-project]: https://github.com/angular/angular-seed
-[semantic-ui]:
+[semantic-ui]: http://semantic-ui.com
 [http-server]: https://github.com/nodeapps/http-server
