@@ -253,7 +253,7 @@ For more information on AngularJS please check out http://angularjs.org/
 # Credits
 Following credits are in order in relation to this project:
 
-Project and documentation base was provided by [Angular Seed Project][angular-seed-project]
+Project and documentation base was provided by [Angular Seed Project][angular-seed-project].
 User interface assets are provided by [Semantic UI default assets][semantic-ui]
 
 [git]: http://git-scm.com/
