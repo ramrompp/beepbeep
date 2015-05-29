@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en" xmlns="http://www.w3.org/1999/html" ng-app="beepbeep">
+    <head>
+        <meta charset="utf-8"></meta>
+        <title>BeepBeep - The fastest way to let people know.. stuff!</title>
+        <link href="bower_components/semantic-ui/dist/semantic.min.css" rel="stylesheet" type="text/css"></link>
+        <script src="bower_components/jquery/dist/jquery.min.js"></script>
+        <script src="bower_components/angular/angular.min.js"></script>
+        <script src="bower_components/angular-route/angular-route.min.js"></script>
+        <script src="bower_components/semantic-ui/dist/semantic.min.js"></script>
+    </head>
+    <body>
+        <div class="ui two column relaxed fitted stackable page grid">
+            <div class="row">
+                <div class="teal sixteen wide column"><h1>BEEPBEEP - MARKETPLACE OF SPEED</h1></div>
+            </div>
+            <div class="row">
+                <div class="four wide column">
+                    <div class="ui vertical left floated segment">
+                        <div class="ui vertical menu">
+                            <div class="label">
+                                <a class="item" href="./#/marketads/search">
+                                    <i class="search icon"></i> Search
+                                </a>
+                            </div>
+                            <div class="label">
+                                <a class="item" href="./#/marketads/add">
+                                    <i class="add icon"></i> Create New Market Ad
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="center aligned twelve wide column">
+                    <ng-view></ng-view>
+                </div>
+            </div>
+        </div>
+        <script src="app.module.js"></script>
+        <script src="app.route.js"></script>
+        <script src="components/marketads/MarketAdService.js"></script>
+        <script src="components/marketads/search/SearchController.js"></script>
+        <script src="components/marketads/details/DetailsController.js"></script>
+        <script src="components/marketads/add/AddController.js"></script>
+        <script src="components/marketads/delete/DeleteController.js"></script>
+        <script src="shared/messages/MessageDirective.js"></script>
+    </body>
+</html>

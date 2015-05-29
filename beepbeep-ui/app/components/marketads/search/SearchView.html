@@ -1,0 +1,33 @@
+<div message-directive></div>
+<div class="ui vertical segment">
+    <div class="ui fluid search">
+        <div class="ui icon input">
+            <input class="prompt" type="text" ng-model="filterString" placeholder="Search notifications...">
+            <i class="search icon"></i>
+        </div>
+        <div class="results"></div>
+    </div>
+</div>
+<div class="ui vertical segment">
+    <div class="ui four cards">
+        <div class="card" ng-repeat="ad in marketads | filter: searchFilter ">
+            <a class="image" href="./#/marketads/details/{{ad.id}}">
+                <object class="ui small rounded image" data="{{ad.thumbnailUrl}}" type="image/png">
+                    <img src="../assets/img/placeholder-image.png">
+                </object>
+            </a>
+            <div class="content">
+                <a class="header" href="./#/marketads/details/{{ad.id}}">{{ad.title.slice(0, 15)}}</a>
+                <div class="description">
+                    {{ad.description.slice(0, 50)}}
+                </div>
+            </div>
+            <div class="extra content">
+                <div class="content">
+                    <div class="ui tag label">{{ ad.priceCents / 100}} <i class="eur icon"></i><!-- Move to controller. --></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

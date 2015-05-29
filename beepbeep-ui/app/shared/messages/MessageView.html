@@ -1,0 +1,20 @@
+<div class="ui success message" ng-show="message != '' && errors == false">
+    <i class="close icon"></i>
+    <div class="header">
+        Success!
+    </div>
+    <p>{{message}}</p>
+</div>
+<div class="ui negative message" ng-show="message != '' && errors == true">
+    <i class="close icon"></i>
+    <div class="header">
+        Oops!
+    </div>
+    <p>{{message}}</p>
+</div>
+
+<script>
+    $('.message .close').on('click', function() {
+        $(this).closest('.message').fadeOut();
+    });
+</script>

@@ -1,0 +1,87 @@
+<div message-directive></div>
+<div class="content">
+    <h1>Create New Market Ad</h1>
+    <div class="ui .add.marketad form segment">
+        <div class="ui horizontal divider">
+            Basic Information
+        </div>
+        <div class="field">
+            <label for="title">Title</label>
+            <input id="title" name="title" placeholder="Set Title..." type="text" ng-model="marketad.title">
+        </div>
+        <div class="field">
+            <label for="description">Description</label>
+            <textarea id="description" placeholder="Give Description..." type="text" ng-model="marketad.description"></textarea>
+        </div>
+        <div class="field">
+            <label for="price">Price</label>
+            <input id="price" placeholder="Set Price..." type="number" ng-model="marketad.priceCents">
+        </div>
+        <div class="ui horizontal divider">
+            Contact Information
+        </div>
+        <div class="two fields">
+            <div class="field">
+                <label for="email">Email</label>
+                <input id="email" placeholder="Give Email..." type="email" ng-model="marketad.email">
+            </div>
+            <div class="field">
+                <label for="phone">Phone</label>
+                <input id="phone" placeholder="Give Phone Number..." type="tel" ng-model="marketad.phone">
+            </div>
+        </div>
+        <div class="ui divider"></div>
+        <div class="ui positive primary button" ng-click="create()">
+            Create
+        </div>
+        <div class="ui orange label">
+            <a href="./#/search">Cancel</a>
+        </div>
+    </div>
+</div>
+
+<script>
+    (function($) {
+        $('.ui.form')
+            .form({
+                title: {
+                    identifier: 'title',
+                    rules: [{
+                        type: 'empty',
+                        prompt: 'Please provide a title'
+                    }]
+                },
+                description: {
+                    identifier: 'description',
+                    rules: [{
+                        type: 'empty',
+                        prompt: 'Please provide a description'
+                    }]
+                },
+                price: {
+                    identifier: 'price',
+                    rules: [{
+                        type: 'empty',
+                        prompt: 'Price needs to be set'
+                    }]
+                },
+                email: {
+                    identifier: 'email',
+                    rules: [{
+                        type: 'email',
+                        prompt: 'Not a valid email address'
+                    }]
+                },
+                phone: {
+                    identifier: 'phone',
+                    rules: [{
+                        type: 'empty',
+                        prompt: 'Not a valid phone number'
+                    }]
+                }
+            }, {
+               on: 'blur',
+               inline: 'true'
+            });
+    }(jQuery));
+</script>
