@@ -9,8 +9,9 @@ module.exports = function(config){
       'app/bower_components/angular-mocks/angular-mocks.js',
       'app/bower_components/jquery/dist/jquery.min.js',
       'app/bower_components/semantic-ui/dist/semantic.js',
-      'app/components/*.js',
-      'app/shared/*.js',
+      'app/*.js',
+      'app/components/**/*.js',
+      'app/shared/**/*.js',
       'tests/**/*.js'
     ],
 

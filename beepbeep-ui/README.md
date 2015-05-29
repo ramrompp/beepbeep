@@ -21,14 +21,14 @@ its package manager (npm) installed.  You can get them from [http://nodejs.org/]
 Clone the beepbeep repository using [git][git]:
 
 ```
-git clone https://github.com/mepa-store/beepbeep.git
+git clone https://github.com/ramrompp/beepbeep.git
 cd beepbeep
 ```
 
 If you just want to start a new project without the beepbeep commit history then you can do:
 
 ```bash
-git clone --depth=1 https://github.com/mepa-store/beepbeep.git <your-project-name>
+git clone --depth=1 https://github.com/ramrompp/beepbeep.git <your-project-name>
 ```
 
 The `depth=1` tells git to only pull down one commit worth of historical data.
@@ -74,6 +74,7 @@ Now browse to the app at `http://localhost:8000/app`.
 
 ```
 app/                    --> all of the source files for the application
+  assets/               --> all of the application specific custom assets
   components/           --> all app specific modules
     marketads/              --> marketads related components
       add/                  --> all components related to add module
@@ -92,14 +93,18 @@ app/                    --> all of the source files for the application
     messages/               --> all components related to global message field.
       MessageDirective.js             --> Directive used in showing message content
       MessageView.html                --> Markup of message field.
-  app.module.js             --> main application module
-  app.route.js              --> application route module
-  index.html            --> app layout file (the main html template file of the app)
-karma.conf.js         --> config file for running unit tests with Karma
+  app.module.js       --> main application module
+  app.route.js        --> application route module
+  index.html          --> app layout file (the main html template file of the app)
 e2e-tests/            --> end-to-end tests
-  protractor-conf.js    --> Protractor config file
-  scenarios.js          --> end-to-end scenarios to be run by Protractor
+  protractor-conf.js  --> Protractor config file
+  GoldenPathStory.js  --> end-to-end golden path scenarios to be run by Protractor
 tests/                --> unit tests
+karma.conf.js         --> config file for running unit tests with Karma
+package.json          --> application package descriptor
+bower.json            --> bower configuration file
+.bowerrc              --> additional bower configuration file
+README.md             --> application documentation file
 ```
 
 ## Testing
@@ -147,6 +152,9 @@ Protractor simulates interaction with our web app and verifies that the applicat
 correctly. Therefore, our web server needs to be serving up the application, so that Protractor
 can interact with it.
 
+By default beepbeep Protractor configuration utilizes Chrome based WebDriver. This means that you need
+ to have Google Chrome Browser installed on the system you are executing E2E tests on.
+
 ```
 npm start
 ```
@@ -180,10 +188,6 @@ development server.
 
 ## Updating Angular
 
-Previously we recommended that you merge in changes to angular-seed into your own fork of the project.
-Now that the angular framework library code and tools are acquired through package managers (npm and
-bower) you can use these tools instead to update the dependencies.
-
 You can update the tool dependencies by running:
 
 ```
@@ -212,7 +216,7 @@ etc to function properly when an html page is opened via `file://` scheme instea
 
 ### Running the App during Development
 
-The angular-seed project comes preconfigured with a local development webserver.  It is a node.js
+The beepbeep project comes preconfigured with a local development webserver.  It is a node.js
 tool called [http-server][http-server].  You can start this webserver with `npm start` but you may choose to
 install the tool globally:
 
@@ -230,30 +234,27 @@ http-server -a localhost -p 8000
 Alternatively, you can choose to configure your own webserver, such as apache or nginx. Just
 configure your server to serve the files under the `app/` directory.
 
-
 ### Running the App in Production
 
-This really depends on how complex your app is and the overall infrastructure of your system, but
-the general rule is that all you need in production are all the files under the `app/` directory.
-Everything else should be omitted.
+All necessary components in order to run beepbeep in production http server of your choosing should
+be in the `app`-directory.
 
-Angular apps are really just a bunch of static html, css and js files that just need to be hosted
-somewhere they can be accessed by browsers.
-
-If your Angular app is talking to the backend server via xhr or other means, you need to figure
-out what is the best way to host the static files to comply with the same origin policy if
-applicable. Usually this is done by hosting the files by the backend server or through
-reverse-proxying the backend server(s) and webserver(s).
-
+Beepbeep has a http level dependency to external public ReST service. Make sure that your network
+allows client browsers to access this endpoint.
 
 ## Continuous Integration
 
 No CI environment is configured for this app.
 
-
 ## Contact
 
 For more information on AngularJS please check out http://angularjs.org/
+
+# Credits
+Following credits are in order in relation to this project:
+
+Project and documentation base was provided by [Angular Seed Project][angular-seed-project]
+User interface assets are provided by [Semantic UI default assets][semantic-ui]
 
 [git]: http://git-scm.com/
 [bower]: http://bower.io
@@ -262,5 +263,6 @@ For more information on AngularJS please check out http://angularjs.org/
 [protractor]: https://github.com/angular/protractor
 [jasmine]: http://jasmine.github.io
 [karma]: http://karma-runner.github.io
-[travis]: https://travis-ci.org/
+[angular-seed-project]: https://github.com/angular/angular-seed
+[semantic-ui]:
 [http-server]: https://github.com/nodeapps/http-server
