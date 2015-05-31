@@ -16,6 +16,11 @@ You need git to clone the beepbeep repository. You can get git from
 Number of node.js tools are also used to initialize and test beepbeep. You must have node.js and
 its package manager (npm) installed.  You can get them from [http://nodejs.org/](http://nodejs.org/).
 
+BeepBeep-UI has been smoke tested with following browsers:
+
+* Google Chrome Version 43.0.2357.81 (64-bit)
+* Apple Safari 8.0.6
+
 ### Clone beepbeep
 
 Clone the beepbeep repository using [git][git]:
