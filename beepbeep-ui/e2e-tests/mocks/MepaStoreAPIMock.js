@@ -12,8 +12,8 @@ var httpBackendMock = function() {
             "priceCents":   101000,
             "imageUrl":     null,
             "thumbnailUrl": null,
-            "email":        "adsd@caas.com",
-            "phone":        "asdasd"
+            "email":        "test1@test.invalid",
+            "phone":        "1234567890"
         },
         {
             "id":           "22222222",
@@ -22,8 +22,8 @@ var httpBackendMock = function() {
             "priceCents":   1010100,
             "imageUrl":     null,
             "thumbnailUrl": null,
-            "email":        "oadsd@asdads.com",
-            "phone":        "asdasda"
+            "email":        "test2@test.invalid",
+            "phone":        "1122334455"
         },
         {
             "id":           "333333333",
@@ -32,8 +32,8 @@ var httpBackendMock = function() {
             "priceCents":   10100,
             "imageUrl":     null,
             "thumbnailUrl": null,
-            "email":        "asd@asdsd.com",
-            "phone":        "asdasda"
+            "email":        "test3@atest.invalid",
+            "phone":        "0987654321"
         }
     ];
 
