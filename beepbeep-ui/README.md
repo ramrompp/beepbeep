@@ -162,9 +162,6 @@ Protractor simulates interaction with our web app and verifies that the applicat
 correctly. Therefore, our web server needs to be serving up the application, so that Protractor
 can interact with it.
 
-By default beepbeep Protractor configuration utilizes Google Chrome based WebDriver. This means that you need
- to have Google Chrome Browser installed on the system you are executing E2E tests on.
-
 ```
 npm start
 ```
