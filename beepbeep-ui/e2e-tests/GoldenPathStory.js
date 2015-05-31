@@ -1,5 +1,8 @@
 'use strict';
-
+/**
+* Test for golden path E2E case.
+*
+*/
 describe('As a user', function() {
 
     var Mocks = require('./mocks/MepaStoreAPIMock.js');

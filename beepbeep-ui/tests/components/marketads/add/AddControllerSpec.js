@@ -7,18 +7,11 @@ describe('Given user wants to create market ad', function() {
     var $httpBackend;
     var $rootScope;
     var createController;
-    var createRequestHandler;
-    var createRequestFailHandler;
     var $marketAdService;
 
     beforeEach(inject(function($injector, _marketAdService_) {
 
         $httpBackend = $injector.get('$httpBackend');
-        createRequestHandler = $httpBackend.when('POST', 'http://mepa-store-api.herokuapp.com/marketads', "{title: 'Test', description: 'Test Description', price: 123.45, email: 'test@test.invalid', phone: '12345678'}")
-            .respond(200, '');
-
-        createRequestFailHandler = $httpBackend.when('POST', 'http://mepa-store-api.herokuapp.com/marketads', '{}')
-                    .respond(400, '');
 
         $rootScope = $injector.get('$rootScope');
         $controller = $injector.get('$controller');
@@ -37,7 +30,7 @@ describe('Given user wants to create market ad', function() {
 
     describe('When user fills valid information on creation form and confirms creation', function() {
         it('Then ad with given values is created to Mepa-Store market ad service', function() {
-            $httpBackend.expectPOST('http://mepa-store-api.herokuapp.com/marketads').respond({});
+            $httpBackend.expectPOST('http://mepa-store-api.herokuapp.com/marketads').respond(200, {});
             var controller = createController();
             $rootScope.create({title: 'Test', description: 'Test Description', price: 123.45, email: 'test@test.invalid', phone: '12345678'});
             $httpBackend.flush();
@@ -46,14 +39,14 @@ describe('Given user wants to create market ad', function() {
         });
     });
 
-    /*describe('When user fills valid information on creation form and confirms creation and error happens service side', function() {
+    describe('When user fills valid information on creation form and confirms creation and error happens service side', function() {
             it('Then ad with given values is not created to Mepa-Store market ad service', function() {
-                $httpBackend.expectPOST('http://mepa-store-api.herokuapp.com/marketads', {priceCents: null});
+                $httpBackend.expectPOST('http://mepa-store-api.herokuapp.com/marketads').respond(400, {});
                 var controller = createController();
-                $rootScope.create({});
+                $rootScope.create('INVALID');
                 $httpBackend.flush();
                 expect($marketAdService.getErrors()).toEqual(true);
                 expect($marketAdService.getStatusMessage()).toEqual('I was not able to create your ad.');
             });
-    });*/
+    });
 });

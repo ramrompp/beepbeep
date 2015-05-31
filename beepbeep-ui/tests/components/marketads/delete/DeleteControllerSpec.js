@@ -7,18 +7,11 @@ describe('Given user wants to delete market ad', function() {
     var $httpBackend;
     var $rootScope;
     var createController;
-    var deleteRequestHandler;
-    var deleteRequestFailHandler;
     var $marketAdService;
 
     beforeEach(inject(function($injector, _marketAdService_) {
 
         $httpBackend = $injector.get('$httpBackend');
-        deleteRequestHandler = $httpBackend.when('DELETE', 'http://mepa-store-api.herokuapp.com/marketads/123456')
-            .respond(200, '');
-
-        deleteRequestFailHandler = $httpBackend.when('DELETE', 'http://mepa-store-api.herokuapp.com/marketads/FAILS')
-            .respond(400, '');
 
         $rootScope = $injector.get('$rootScope');
         $controller = $injector.get('$controller');
@@ -37,7 +30,7 @@ describe('Given user wants to delete market ad', function() {
 
     describe('When user clicks delete button and confirms it', function() {
         it('Then ad with corresponding id is deleted from Mepa-Store market ad service', function() {
-            $httpBackend.expectDELETE("http://mepa-store-api.herokuapp.com/marketads/123456");
+            $httpBackend.expectDELETE("http://mepa-store-api.herokuapp.com/marketads/123456").respond(200, '');
             var controller = createController();
             $rootScope.deletead('123456');
             $httpBackend.flush();
@@ -48,7 +41,7 @@ describe('Given user wants to delete market ad', function() {
 
     describe('When user clicks delete button and confirms it', function() {
             it('Then ad with corresponding id can not be deleted from Mepa-Store market ad service', function() {
-                $httpBackend.expectDELETE("http://mepa-store-api.herokuapp.com/marketads/FAILS");
+                $httpBackend.expectDELETE("http://mepa-store-api.herokuapp.com/marketads/FAILS").respond(400, '');
                 var controller = createController();
                 $rootScope.deletead('FAILS');
                 $httpBackend.flush();

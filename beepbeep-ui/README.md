@@ -90,6 +90,9 @@ app/                    --> all of the source files for the application
         SearchView.html               --> Search view markup file
       MarketAdService.js    --> Service module to wrap communication with Mepa-Store Market Ad service
   shared/                   --> Contains all application shared directives
+    filters                 --> filter components for ui formatting
+      PriceFilters.js       --> filter for price related ui formatting
+      StringFilters.js      --> utility filter for ui string formatting
     messages/               --> all components related to global message field.
       MessageDirective.js             --> Directive used in showing message content
       MessageView.html                --> Markup of message field.
@@ -97,6 +100,8 @@ app/                    --> all of the source files for the application
   app.route.js        --> application route module
   index.html          --> app layout file (the main html template file of the app)
 e2e-tests/            --> end-to-end tests
+  mocks               --> http backend mocks used in E2E testing
+    MepaStoreAPIMock.js     --> http endpoint mock for mepa store api
   protractor-conf.js  --> Protractor config file
   GoldenPathStory.js  --> end-to-end golden path scenarios to be run by Protractor
 tests/                --> unit tests
