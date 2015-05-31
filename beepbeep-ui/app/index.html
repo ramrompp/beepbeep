@@ -7,6 +7,8 @@
         <script src="bower_components/jquery/dist/jquery.min.js"></script>
         <script src="bower_components/angular/angular.min.js"></script>
         <script src="bower_components/angular-route/angular-route.min.js"></script>
+        <script src="bower_components/angular-sanitize/angular-sanitize.min.js"></script>
+        <script src="bower_components/angular-mocks/angular-mocks.js"></script>
         <script src="bower_components/semantic-ui/dist/semantic.min.js"></script>
     </head>
     <body>
@@ -19,11 +21,11 @@
                     <div class="ui vertical left floated segment">
                         <div class="ui vertical menu">
                             <div class="label">
-                                <a class="item" href="./#/marketads/search">
+                                <a id="searchLink" class="item" href="./#/marketads/search">
                                     <i class="search icon"></i> Search
                                 </a>
                             </div>
-                            <div class="label">
+                            <div id="addLink" class="label">
                                 <a class="item" href="./#/marketads/add">
                                     <i class="add icon"></i> Create New Market Ad
                                 </a>
@@ -43,6 +45,8 @@
         <script src="components/marketads/details/DetailsController.js"></script>
         <script src="components/marketads/add/AddController.js"></script>
         <script src="components/marketads/delete/DeleteController.js"></script>
+        <script src="shared/filters/PriceFilters.js"></script>
+        <script src="shared/filters/StringFilters.js"></script>
         <script src="shared/messages/MessageDirective.js"></script>
     </body>
 </html>

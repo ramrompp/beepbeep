@@ -5,5 +5,8 @@ angular.module('beepbeep', [
     'beepbeep.controllers.marketad.delete',
     'beepbeep.directives.messages',
     'beepbeep.services.marketad',
-    'ngRoute'
+    'beepbeep.filters.price',
+    'beepbeep.filters.string',
+    'ngRoute',
+    'ngSanitize'
 ]);

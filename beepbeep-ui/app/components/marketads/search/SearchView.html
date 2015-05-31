@@ -12,19 +12,17 @@
     <div class="ui four cards">
         <div class="card" ng-repeat="ad in marketads | filter: searchFilter ">
             <a class="image" href="./#/marketads/details/{{ad.id}}">
-                <object class="ui small rounded image" data="{{ad.thumbnailUrl}}" type="image/png">
-                    <img src="assets/img/placeholder-image.png">
-                </object>
+                <img src="{{ad.thumbnailUrl}}" onerror="if (this.src != 'assets/img/placeholder-image.png') this.src = 'assets/img/placeholder-image.png';">
             </a>
             <div class="content">
-                <a class="header" href="./#/marketads/details/{{ad.id}}">{{ad.title.slice(0, 15)}}</a>
+                <a id="titleLink" class="header" href="./#/marketads/details/{{ad.id}}">{{ad.title | createTitleSnippet}}</a>
                 <div class="description">
-                    {{ad.description.slice(0, 50)}}
+                    {{ad.description | createDescriptionSnippet}}
                 </div>
             </div>
             <div class="extra content">
                 <div class="content">
-                    <div class="ui tag label">{{ ad.priceCents / 100}} <i class="eur icon"></i><!-- Move to controller. --></div>
+                    <div class="ui tag label">{{ ad.priceCents | convertPriceFromCents}} <i class="eur icon"></i></div>
                 </div>
             </div>
         </div>

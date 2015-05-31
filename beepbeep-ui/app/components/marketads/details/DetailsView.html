@@ -3,7 +3,7 @@
     <div class="row">
         <div class="sixteen wide column">
             <div class="ui teal segment">
-                <a class="ui red right ribbon label" onclick="$('.ui.modal').modal('show');"><i class="delete icon"></i> Delete</a>
+                <a id="deleteLink" class="ui red right ribbon label" onclick="$('.ui.modal').modal('show');"><i class="delete icon"></i> Delete</a>
                 <h2>{{marketad.title}}</h2>
             </div>
         </div>
@@ -11,9 +11,7 @@
     <div class="row">
             <div class="eight wide column">
                 <div class="ui teal vertical left floated segment">
-                    <object class="ui medium rounded image" data="{{marketad.imageUrl}}" type="image/png">
-                        <img class="ui medium rounded image" src="assets/img/placeholder-image.png">
-                    </object>
+                    <img class="ui medium rounded image" src="{{marketad.imageUrl}}" onerror="if (this.src != 'assets/img/placeholder-image.png') this.src = 'assets/img/placeholder-image.png';">
                 </div>
             </div>
             <div class="eight wide column">
@@ -26,7 +24,7 @@
                                     <div class="item">
                                         <i class="eur icon"></i>
                                         <div class="content">
-                                            <div class="ui tag label">{{marketad.priceCents / 100}} <!-- Move to controller. Redundance with search view. --></div>
+                                            <div id="price" class="ui tag label">{{marketad.priceCents | convertPriceFromCents}}</div>
                                         </div>
                                     </div>
                                 </div>
@@ -42,13 +40,13 @@
                                 <div class="ui divided list">
                                     <div class="item">
                                         <i class="mail outline icon"></i>
-                                        <div class="content">
+                                        <div id="email" class="content">
                                             {{marketad.email}}
                                         </div>
                                     </div>
                                     <div class="item">
                                         <i class="call icon"></i>
-                                        <div class="content">
+                                        <div id="phone" class="content">
                                             {{marketad.phone}}
                                         </div>
                                     </div>
@@ -61,12 +59,15 @@
     </div>
     <div class="row">
         <div class="sixteen wide column">
-            <div class="ui teal segment">{{marketad.description}}</div>
+                <div id="description" class="ui teal segment">
+                    <p ng-bind-html="marketad.description | formatDescription">
+                    </p>
+                </div>
         </div>
     </div>
 </div>
 
-<div class="ui basic modal" ng-controller="deleteController">
+<div id="confirmModal" class="ui basic modal" ng-controller="deleteController">
     <i class="close icon"></i>
     <div class="header">
         Confirm delete of market ad
@@ -85,7 +86,7 @@
                 <i class="remove icon"></i>
                 No
             </div>
-            <div class="ui green basic inverted button" ng-click="deletead(marketad.id)">
+            <div id="deleteConfirmation"  class="ui green basic inverted button" ng-click="deletead(marketad.id)">
                 <i class="checkmark icon"></i>
                 Yes
             </div>

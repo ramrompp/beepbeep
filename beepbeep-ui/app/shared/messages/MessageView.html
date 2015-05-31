@@ -1,13 +1,13 @@
 <div class="ui success message" ng-show="message != '' && errors == false">
     <i class="close icon"></i>
-    <div class="header">
+    <div id="successIndicator" class="header">
         Success!
     </div>
     <p>{{message}}</p>
 </div>
 <div class="ui negative message" ng-show="message != '' && errors == true">
     <i class="close icon"></i>
-    <div class="header">
+    <div id="errorIndicator" class="header">
         Oops!
     </div>
     <p>{{message}}</p>
